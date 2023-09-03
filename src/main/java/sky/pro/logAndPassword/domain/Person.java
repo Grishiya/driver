@@ -4,6 +4,7 @@ public class Person {
     private String name;
     private String passport;
 
+
     public Person(String name, String passport) {
         this.name = name;
         this.passport = passport;
