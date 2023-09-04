@@ -3,8 +3,8 @@ package sky.pro.logAndPassword.domain;
 public class Driver extends Person {
     private String driverLicense;
 
-    public Driver(String name, String passport, String driverLicense) {
-        super(name, passport);
+    public Driver(String name, String passport, String driverLicense, int professions) {
+        super(name, passport, professions);
         this.driverLicense = driverLicense;
     }
 
