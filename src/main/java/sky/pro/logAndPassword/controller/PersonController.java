@@ -33,7 +33,8 @@ public class PersonController {
     @GetMapping("/profession")
     public String addProfessions(@RequestParam("passport") String passport,
                                @RequestParam("profession") Integer profession) {
-        return " збс";
+       personService.addProfessionNumber(passport, profession);
+        return "Профессия добавлена";
     }
 
     @GetMapping(path = "/person/by-passport")

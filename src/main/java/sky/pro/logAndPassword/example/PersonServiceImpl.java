@@ -4,12 +4,11 @@ import org.springframework.stereotype.Service;
 import sky.pro.logAndPassword.domain.Driver;
 import sky.pro.logAndPassword.domain.Person;
 import sky.pro.logAndPassword.domain.TruckDriver;
-import sky.pro.logAndPassword.exception.BadPersonNumberException;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 @Service
 public class PersonServiceImpl implements PersonService {
@@ -73,11 +72,20 @@ public class PersonServiceImpl implements PersonService {
 
     }
 
-    private String getProfessionsNames(List<Integer> professionsNumbers) {
+    private String getProfessionsNames(Set<Integer> professionsNumbers) {
         String result = "";
         for (Integer professionsNumber : professionsNumbers) {
             result = result + " " + professions.get(professionsNumber);
         }
         return result;
+    }
+
+    @Override
+    public void addProfessionNumber(String passport, Integer profession) {
+        final Person person = persons.get(passport);
+        if (person == null) {
+            throw new RuntimeException("Человека с такпим паспортом нет");
+        }
+        person.getProfessions().add(profession);
     }
 }

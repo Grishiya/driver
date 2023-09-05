@@ -1,18 +1,21 @@
 package sky.pro.logAndPassword.domain;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Person {
     private String name;
     private String passport;
-    private List<Integer> professions;
+    private Set<Integer> professions;
 
 
     public Person(String name, String passport, int professions) {
         this.name = name;
         this.passport = passport;
-        this.professions = new ArrayList<>(List.of(professions));
+        this.professions = new HashSet<>(List.of(professions)) {
+        };
     }
 
     public String getName() {
@@ -37,7 +40,7 @@ public class Person {
         }
     }
 
-    public List<Integer> getProfessions() {
+    public Set<Integer> getProfessions() {
         return professions;
     }
 }

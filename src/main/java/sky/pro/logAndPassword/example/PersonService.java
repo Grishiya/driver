@@ -11,5 +11,7 @@ public interface PersonService {
 
     String getPersonByPassport(String passport);
 
+    void addProfessionNumber(String passport, Integer profession);
+
 //    List<PersonServiceImpl> addPerson(Person person);
 }
